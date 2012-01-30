@@ -1,0 +1,25 @@
+{
+  "name": "testrest",
+  "description": "REST API Testing Helpers (designed for use with Mocha)",
+  "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
+  "tags": [ "rest", "test", "testing", "mocha" ],
+  "version": "0.0.1",
+  "engines": {
+    "node": ">= 0.4.x < 0.7.0"
+  },
+  
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sidelab/testrest.git"
+  },
+  "bugs": {
+    "url": "http://github.com/sidelab/testrest/issues"
+  },
+  
+  "contributors": []
+}
