@@ -1,5 +1,7 @@
 # testREST - REST API Testing Solution
 
+__NOTE:__ _testREST is currently a work in progress, and not ready for use.  Comments regarding overall approach, however, are definitely appreciated :)_
+
 testREST is a helper for writing unit tests against a REST API.  It's been written to fill a gap in current testing solutions for testing a REST API.  While a [few people](http://stackoverflow.com/questions/203495/testing-rest-webservices) are happy using [SoapUI](http://www.soapui.org/) for testing webservices in general, I think things could be better.
 
 testREST is an experiment at determining if this is the case.  In testREST you:
@@ -66,3 +68,16 @@ describe('GET tests', testrest());
 You will see here the call to `testrest` in place of a function for the test suite body as part of the describe statement.  What is happening here is the call to `testrest` returns a suite of tests generated from the rules contained within the `.txt` file partner for the current `.js` that is executing.  Have a look in the test folder of this repository, you'll get the picture.
 
 If you want to use a different `.txt` file that one that matches the current `.js` file, then you can provide the name of the alternative suite to the `testrest` function call.
+
+Running the above test would provide the following output (once the testREST implementation is completed):
+
+```
+GET tests
+  ✓ can load the definition file: simple-get.txt 
+  ✓ can parse the definition file 
+  ✓ loads the rules as new tests 
+  ✓ returns a 404 for /does-not-exist 
+
+
+✔ 4 tests complete (4ms)
+```

@@ -1,3 +1,3 @@
-# returns a 404 for /
-GET /
+# returns a 404 for /does-not-exist
+GET /does-not-exist
 EXPECT 404
