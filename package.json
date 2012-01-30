@@ -7,10 +7,15 @@
   "engines": {
     "node": ">= 0.4.x < 0.7.0"
   },
+  "main": "lib/testrest.js",
   
   "dependencies": {
+    "chai": "0.2.x",
+    "superagent": "0.3.x"
   },
+  
   "devDependencies": {
+    "restify": "beta"
   },
 
   "repository": {
