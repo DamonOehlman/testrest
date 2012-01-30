@@ -11,6 +11,8 @@
   
   "dependencies": {
     "chai": "0.2.x",
+    "mocha": "0.10.x",
+    "debug": "*",
     "superagent": "0.3.x"
   },
   
