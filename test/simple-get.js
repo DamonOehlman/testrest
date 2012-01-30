@@ -10,4 +10,4 @@ function _initServer(done) {
 
 _initServer();
 
-describe('GET tests', testrest('simple-get'));
+describe('GET tests', testrest());

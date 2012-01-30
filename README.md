@@ -60,5 +60,9 @@ function _initServer(done) {
 
 _initServer();
 
-describe('GET tests', testrest('simple-get'));
+describe('GET tests', testrest());
 ```
+
+You will see here the call to `testrest` in place of a function for the test suite body as part of the describe statement.  What is happening here is the call to `testrest` returns a suite of tests generated from the rules contained within the `.txt` file partner for the current `.js` that is executing.  Have a look in the test folder of this repository, you'll get the picture.
+
+If you want to use a different `.txt` file that one that matches the current `.js` file, then you can provide the name of the alternative suite to the `testrest` function call.
