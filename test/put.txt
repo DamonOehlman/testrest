@@ -1,0 +1,10 @@
+# returns the contents of the document PUT to /test
+PUT /test
+{
+    "id": "test"
+}
+
+EXPECT 2xx
+{
+    "id": "test"
+}
