@@ -9,9 +9,34 @@ testREST is an experiment at determining if this is the case.  In testREST you:
 1. Define your tests with plain text files in a simple format
 2. Use [mocha](https://github.com/visionmedia/mocha) to run your tests
 
-The library is very much under development at this stage, but it would be great to get some feedback on the proposed spec file format:
+## Installing
+
+You can install testrest into a node project like so using `npm`: 
+
+```
+npm install testrest
+```
+
+In reality, though you probably want to add it into your `package.json` file as a dev dependency so users of your library / application aren't required to download the package, e.g.:
+
+```json
+{
+  ..
+  
+  "dependencies": {
+  }
+  
+  "devDependencies": {
+    "testrest": "*"
+  },
+
+  ..
+}
+```
 
 ## Spec File Format
+
+The library is very much under development at this stage, but it would be great to get some feedback on the proposed spec file format:
 
 Displayed below is the spec file format that is currently being used.  A spec file allows for the definition of multiple end-point tests which will be executed sequentially.
 
