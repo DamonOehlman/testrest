@@ -8,3 +8,12 @@ GET /
 EXPECT 2xx
 Hi
 < Server: restify
+
+# returns valid JSON for /json-test
+GET /json-test
+
+EXPECT 2xx
+< Server: restify
+{
+    "hi": "there"
+}

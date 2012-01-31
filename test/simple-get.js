@@ -7,6 +7,10 @@ function _initServer(done) {
         res.send('Hi');
     });
     
+    server.get('/json-test', function(req, res) {
+        res.send({ hi: 'there' });
+    });
+    
     server.listen(3000);
 };
 

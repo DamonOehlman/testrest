@@ -9,6 +9,12 @@ testREST is an experiment at determining if this is the case.  In testREST you:
 1. Define your tests with plain text files in a simple format
 2. Use [mocha](https://github.com/visionmedia/mocha) to run your tests
 
+## Alternative (Good) Solutions
+
+Some good alternatives to testrest are:
+
+- [nock](https://github.com/pgte/nock) (thanks to [dscape](http://twitter.com/dscape) for the tip).
+
 ## Installing
 
 You can install testrest into a node project like so using `npm`: 
