@@ -1,6 +1,6 @@
 # testREST - REST API Testing Solution
 
-__NOTE:__ _testREST is currently a work in progress, and not ready for use.  Comments regarding overall approach, however, are definitely appreciated :)_
+__NOTE:__ _testREST is currently a work in progress, feel free to use it, and please report issues, but don't get upset when it doesn't quite do what you expect it to._
 
 testREST is a helper for writing unit tests against a REST API.  It's been written to fill a gap in current testing solutions for testing a REST API.  While a [few people](http://stackoverflow.com/questions/203495/testing-rest-webservices) are happy using [SoapUI](http://www.soapui.org/) for testing webservices in general, I think things could be better.
 
@@ -41,6 +41,13 @@ response body
 # returns a 404 for /does-not-exist
 GET /does-not-exist
 EXPECT 404
+
+# returns Hi for /
+GET /
+
+EXPECT 2xx
+Hi
+< Server: restify
 ```
 
 ## Creating Test Wrappers
@@ -69,7 +76,7 @@ You will see here the call to `testrest` in place of a function for the test sui
 
 If you want to use a different `.txt` file that one that matches the current `.js` file, then you can provide the name of the alternative suite to the `testrest` function call.
 
-Running the above test would provide the following output (once the testREST implementation is completed):
+Running the above test (using `mocha --reporter spec`) would provide the following output:
 
 ```
 GET tests
@@ -77,7 +84,8 @@ GET tests
   ✓ can parse the definition file 
   ✓ loads the rules as new tests 
   ✓ returns a 404 for /does-not-exist 
+  ✓ returns Hi for / 
 
 
-✔ 4 tests complete (4ms)
+✔ 5 tests complete (19ms)
 ```
