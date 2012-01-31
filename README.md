@@ -54,22 +54,20 @@ Hi
 
 When using Mocha, you define your tests in a number of `.js` files and Mocha intelligently turns these into it's own internal test representation, so without some simple glue Mocha is not going to interpret out `.txt` files as tests that need to be run.
 
-We fix this by creating a simple wrapper file.  Shown below is an example from the current (emerging) testREST test suite:
+We fix this by creating a simple wrapper file.  Shown below is an example from the [Sidelab Pointifex Reference Server](https://github.com/pointifex/reference-server) test suite:
 
 ```js
-var restify = require('restify'),
-    server = restify.createServer(),
-    testrest = require('../');
+var testrest = require('testrest'),
+    server = require('../lib/server');
     
-function _initServer(done) {
-    server.get('/', function(req, res) {
-        res.send('Hi');
+describe('pointifex reference server tests', function() {
+    before(function(done) {
+        server.run(done);
     });
-};
-
-_initServer();
-
-describe('GET tests', testrest());
+    
+    // describe the details interface
+    describe('details interface', testrest('details'));    
+});
 ```
 
 You will see here the call to `testrest` in place of a function for the test suite body as part of the describe statement.  What is happening here is the call to `testrest` returns a suite of tests generated from the rules contained within the `.txt` file partner for the current `.js` that is executing.  Have a look in the test folder of this repository, you'll get the picture.
