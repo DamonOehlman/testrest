@@ -3,11 +3,12 @@
   "description": "REST API Testing Helpers (designed for use with Mocha)",
   "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
   "tags": [ "rest", "test", "testing", "mocha" ],
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "node": ">= 0.4.x < 0.7.0"
   },
   "main": "lib/testrest.js",
+  "bin": { "testrest": "./bin/testrest" },
   
   "dependencies": {
     "chai": "0.2.x",
