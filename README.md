@@ -21,6 +21,8 @@ In reality, though you probably want to add it into your `package.json` file as 
 
 ```json
 {
+  "name": "package-name",
+    
   ..
   
   "dependencies": {
