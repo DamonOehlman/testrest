@@ -6,6 +6,8 @@ function _initServer(done) {
     server.get('/', function(req, res) {
         res.send('Hi');
     });
+    
+    server.listen(3000);
 };
 
 _initServer();

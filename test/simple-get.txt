@@ -1,3 +1,10 @@
 # returns a 404 for /does-not-exist
 GET /does-not-exist
 EXPECT 404
+
+# returns Hi for /
+GET /
+
+EXPECT 2xx
+Hi
+< Server: restify
