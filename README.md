@@ -97,7 +97,9 @@ describe('pointifex reference server tests', function() {
 });
 ```
 
-You will see here the call to `testrest` in place of a function for the test suite body as part of the describe statement.  What is happening here is the call to `testrest` returns a suite of tests generated from the rules contained within the `.txt` file partner for the current `.js` that is executing.  Have a look in the test folder of this repository, you'll get the picture.
+You will see here the call to `testrest` in place of a function for the test suite body as part of the describe statement.  
+
+In this particular case a named test suite is being pulled in in the `testrest` call and a mocha test suite is returned.  The `testrest` function can also be used to return the testsuite that relates to the currently executing `.js` wrapper by simply calling `testrest()` with no arguments.
 
 If you want to use a different `.txt` file that one that matches the current `.js` file, then you can provide the name of the alternative suite to the `testrest` function call.
 
