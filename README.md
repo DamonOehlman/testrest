@@ -83,6 +83,29 @@ Hi
 < Server: restify
 ```
 
+## JSON Response Parsing
+
+If you specify JSON as the expected body of your response then a [chai.js](http://chaijs.com/) [deepEqual](http://chaijs.com/code/assert.html#deepEqual) is used to validate the response matches your expected response rather than a simple `equal` test.  
+
+The behaviour of this checking is selective also.  That is only the sections of the JSON response that you specify in the test will be checked against the response.  For instance, the following tests both return true:
+
+```
+# returns valid JSON for /json-test
+GET /json-test
+EXPECT 2xx
+{
+    "first": "Roger",
+    "last": "Rabbit"
+}
+
+# partial JSON tests are ok too
+GET /json-test
+EXPECT 2xx
+{
+    "first": "Roger"
+}
+```
+
 ## Creating Test Wrappers
 
 When using Mocha, you define your tests in a number of `.js` files and Mocha intelligently turns these into it's own internal test representation, so without some simple glue Mocha is not going to interpret out `.txt` files as tests that need to be run.

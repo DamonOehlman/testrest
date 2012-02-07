@@ -11,9 +11,15 @@ Hi
 
 # returns valid JSON for /json-test
 GET /json-test
-
 EXPECT 2xx
-< Server: restify
 {
-    "hi": "there"
+    "first": "Roger",
+    "last": "Rabbit"
+}
+
+# partial JSON tests are ok too
+GET /json-test
+EXPECT 2xx
+{
+    "first": "Roger"
 }
