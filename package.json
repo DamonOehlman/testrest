@@ -14,7 +14,8 @@
     "chai": "0.2.x",
     "mocha": "0.10.x",
     "debug": "*",
-    "superagent": "0.3.x"
+    "superagent": "0.3.x",
+    "sniff": "*"
   },
   
   "devDependencies": {
@@ -23,10 +24,10 @@
 
   "repository": {
     "type": "git",
-    "url": "git://github.com/sidelab/testrest.git"
+    "url": "git://github.com/DamonOehlman/testrest.git"
   },
   "bugs": {
-    "url": "http://github.com/sidelab/testrest/issues"
+    "url": "http://github.com/DamonOehlman/testrest/issues"
   },
   
   "contributors": []

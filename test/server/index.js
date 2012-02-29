@@ -14,6 +14,14 @@ server.get('/json-test', function(req, res) {
     });
 });
 
+server.get('/empty', function(req, res) {
+    res.send([]);
+});
+
+server.get('/empty-fail', function(req, res) {
+    res.send({ error: 'failed' });
+});
+
 server.put('/test', function(req, res) {
     res.send(req.body);
 });

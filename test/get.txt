@@ -23,3 +23,13 @@ EXPECT 2xx
 {
     "first": "Roger"
 }
+
+# expect the contents of empty to be an empty array
+GET /empty
+EXPECT 2xx
+[]
+
+# expect the contents of empty-fail to be an empty array (should fail)
+GET /empty-fail
+EXPECT 2xx
+[]
