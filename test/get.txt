@@ -28,8 +28,3 @@ EXPECT 2xx
 GET /empty
 EXPECT 2xx
 []
-
-# expect the contents of empty-fail to be an empty array (should fail)
-GET /empty-fail
-EXPECT 2xx
-[]

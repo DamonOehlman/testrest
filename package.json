@@ -12,10 +12,10 @@
   
   "dependencies": {
     "chai": "0.2.x",
-    "mocha": "0.10.x",
+    "mocha": "1.0.x",
     "debug": "*",
     "superagent": "0.3.x",
-    "sniff": "*"
+    "sniff": "0.1.x"
   },
   
   "devDependencies": {
