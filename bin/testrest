@@ -1,3 +1,10 @@
 #!/usr/bin/env node
+var path = require('path');
 
-require('../').cmdline();
+require('scaffolder')({
+    defaultArgs: {
+        path: path
+    },
+    
+    defaultCommands: ['test']
+});

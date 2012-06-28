@@ -10,7 +10,7 @@
   ],
   "version": "0.2.0",
   "engines": {
-    "node": ">= 0.4.x < 0.7.0"
+    "node": ">= 0.6.x < 0.9.0"
   },
   "main": "lib/testrest.js",
   "bin": {
@@ -18,13 +18,14 @@
   },
   "dependencies": {
     "chai": "0.2.x",
-    "mocha": "1.0.x",
+    "mocha": "1.2.x",
     "debug": "*",
-    "superagent": "0.3.x",
+    "scaffolder": "0.5.x",
+    "superagent": "0.5.x",
     "sniff": "0.1.x"
   },
   "devDependencies": {
-    "restify": "beta"
+    "restify": "1.4.x"
   },
   "repository": {
     "type": "git",
