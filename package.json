@@ -17,10 +17,8 @@
     "testrest": "./bin/testrest"
   },
   "dependencies": {
-    "chai": "0.2.x",
     "mocha": "1.2.x",
     "debug": "*",
-    "scaffolder": "0.5.x",
     "superagent": "0.5.x",
     "sniff": "0.1.x"
   },
