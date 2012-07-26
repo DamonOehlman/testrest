@@ -2,6 +2,8 @@
 
 __NOTE:__ _testREST is currently a work in progress, feel free to use it, and please report issues, but don't get upset when it doesn't quite do what you expect it to._
 
+<a href="http://travis-ci.org/#!/DamonOehlman/testrest"><img src="https://secure.travis-ci.org/DamonOehlman/testrest.png" alt="Build Status"></a>
+
 testREST is a helper for writing unit tests against a REST API.  It's been written to fill a gap in current testing solutions for testing a REST API.  While a [few people](http://stackoverflow.com/questions/203495/testing-rest-webservices) are happy using [SoapUI](http://www.soapui.org/) for testing webservices in general, I think things could be better.
 
 testREST is an experiment at determining if this is the case.  In testREST you:
