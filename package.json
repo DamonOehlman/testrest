@@ -13,9 +13,6 @@
     "node": ">= 0.6.x < 0.9.0"
   },
   "main": "lib/testrest.js",
-  "bin": {
-    "testrest": "./bin/testrest"
-  },
   "dependencies": {
     "mocha": "1.2.x",
     "debug": "*",
@@ -31,6 +28,9 @@
   },
   "bugs": {
     "url": "http://github.com/DamonOehlman/testrest/issues"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
   },
   "contributors": [],
   "optionalDependencies": {}
