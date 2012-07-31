@@ -1,37 +1,33 @@
-var restify = require('restify'),
+var tako = require('tako'),
     fs = require('fs'),
     path = require('path'),
-    server = restify.createServer();
+    app = tako();
     
-server.use(restify.jsonBodyParser({ mapParams: false }));
-    
-server.get('/', function(req, res) {
-    res.send('Hi');
+app.route('/').text('Hi');
+
+app.route('/json-test').json({
+    first: 'Roger',
+    last: 'Rabbit'
 });
 
-server.get('/json-test', function(req, res) {
-    res.send({
-        first: "Roger",
-        last: "Rabbit"
+app.route('/empty').json([]);
+
+app.route('/empty-fail').json({
+    error: 'failed'
+});
+
+app.route('/test.txt')
+  .html(function (req, res) {
+    fs.readFile(path.resolve(__dirname, '..', 'data', 'test.txt'), 'utf8', function(err, data) {
+        res.end(data);
     });
-});
+  })
+  .methods('GET')
 
-server.get('/empty', function(req, res) {
-    res.send([]);
-});
-
-server.get('/empty-fail', function(req, res) {
-    res.send({ error: 'failed' });
-});
-
-server.put('/test', function(req, res) {
+app.route('/test')
+  .html(function(req, res) {
     res.send(req.body);
-});
+  })
+  .methods('PUT');
 
-server.get('/test.txt', function(req, res) {
-    fs.readFile(path.resolve(__dirname, 'data', 'test.txt'), 'utf8', function(err, data) {
-        res.send(data);
-    });
-});
-    
-server.listen(3000);
+app.httpServer.listen(3000);

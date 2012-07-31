@@ -3,5 +3,5 @@ var testrest = require('../'),
     
 describe('testREST functionality tests', function() {
     describe('GET tests', testrest('get'));
-    describe('PUT tests', testrest('put'));
+    // describe('PUT tests', testrest('put'));
 })

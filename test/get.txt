@@ -1,35 +1,6 @@
-# returns a 404 for /does-not-exist
-GET /does-not-exist
-EXPECT 404
-
 # returns Hi for /
 GET /
 
 EXPECT 2xx
 Hi
-< Server: restify
-
-# returns valid JSON for /json-test
-GET /json-test
-EXPECT 2xx
-{
-    "first": "Roger",
-    "last": "Rabbit"
-}
-
-# partial JSON tests are ok too
-GET /json-test
-EXPECT 2xx
-{
-    "first": "Roger"
-}
-
-# expect the contents of empty to be an empty array
-GET /empty
-EXPECT 2xx
-[]
-
-# expect that we can compare contents against a file
-GET /test.txt
-EXPECT 2xx
-match: data/test.txt
+< Content-Type: text/plain
