@@ -28,3 +28,8 @@ EXPECT 2xx
 GET /empty
 EXPECT 2xx
 []
+
+# expect that we can compare contents against a file
+GET /test.txt
+EXPECT 2xx
+match: data/test.txt

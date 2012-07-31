@@ -1,4 +1,6 @@
 var restify = require('restify'),
+    fs = require('fs'),
+    path = require('path'),
     server = restify.createServer();
     
 server.use(restify.jsonBodyParser({ mapParams: false }));
@@ -24,6 +26,12 @@ server.get('/empty-fail', function(req, res) {
 
 server.put('/test', function(req, res) {
     res.send(req.body);
+});
+
+server.get('/test.txt', function(req, res) {
+    fs.readFile(path.resolve(__dirname, 'data', 'test.txt'), 'utf8', function(err, data) {
+        res.send(data);
+    });
 });
     
 server.listen(3000);

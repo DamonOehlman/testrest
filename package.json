@@ -16,7 +16,7 @@
   "dependencies": {
     "mocha": "1.2.x",
     "debug": "*",
-    "superagent": "0.5.x",
+    "request": "2.9.x",
     "sniff": "0.1.x"
   },
   "devDependencies": {
