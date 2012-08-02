@@ -14,13 +14,13 @@
   },
   "main": "lib/testrest.js",
   "dependencies": {
-    "mocha": "1.3.x",
     "debug": "*",
     "request": "2.9.x",
     "sniff": "0.1.x"
   },
   "devDependencies": {
-    "tako": "0.3.x"
+    "mocha": "1.3.x",
+    "tako": "git://github.com/DamonOehlman/tako.git"
   },
   "repository": {
     "type": "git",
