@@ -19,8 +19,8 @@ function loadSuite(definitionFile, opts) {
   // and insert the items as the tests member
   if (Array.isArray(suite)) {
     suite = {
-      opts: {},
-      tests: [].concat(suite)
+      opts: {}
+    , tests: [].concat(suite)
     }
   }
   
