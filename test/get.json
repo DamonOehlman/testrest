@@ -1,0 +1,11 @@
+{
+  "baseUrl": "http://localhost:3000",
+  
+  "tests": [
+    { 
+      "desc": "returns Hi for /", 
+      "method": "GET",
+      "url": "/"
+    }
+  ]
+}

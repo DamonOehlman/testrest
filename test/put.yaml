@@ -1,0 +1,10 @@
+- it: returns the contents of the document PUT to /test
+  put: /test
+  
+  body:
+    id: test
+    
+  expect:
+    status: 2xx
+    body:
+      id: test

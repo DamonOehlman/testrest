@@ -1,7 +1,7 @@
 var debug = require('debug')('testrest'),
     events = require('events'),
     util = require('util'),
-    matcher = require('./matcher'),
+    matcher = require('../lib/matcher'),
     reStages = {
         comment: /^\s*\#\s?(.*)$/,
         request: /^\s*(GET|POST|PUT|DELETE|HEAD|OPTIONS)\s(.*)/,
@@ -13,18 +13,11 @@ var debug = require('debug')('testrest'),
     reStatusWildcard = /^(\d)x+$/,
     rePattern = /^match\:\s*(.*)$/,
     stageKeys = Object.keys(reStages),
-    Rule = require('./rule');
+    Rule = require('../lib/rule');
 
-
-function Parser(filename, opts) {
-    // save a reference to the definition file
-    this.filename = filename;
-    
-    // ensure we have options
-    this.opts = opts || {};
-    
+function Parser(opts) {
     // initialise the base location
-    this.server = this.opts.server || 'http://localhost:3000';
+    this.baseUrl = opts.baseUrl;
 }
 
 util.inherits(Parser, events.EventEmitter);
@@ -33,7 +26,7 @@ Parser.prototype._addHeader = function(target, match, raw) {
     if (match) {
         // if we don't have a headers array yet, then add it
         target.headers = target.headers || [];
-        
+
         // add the header
         target.headers.push({
             name: match[1],
@@ -60,7 +53,7 @@ Parser.prototype._commentLine = function(rule, line) {
 
 Parser.prototype._requestLine = function(rule, line) {
     var headerMatch = reHeader.exec(line);
-    
+
     if (headerMatch) {
         // add the header to the request
         this._addHeader(rule.request, headerMatch, line);
@@ -75,7 +68,7 @@ Parser.prototype._requestLine = function(rule, line) {
 
             // if the uri is not an absolute url, then prepend the server url
             if (! reAbsUrl.test(rule.request.uri)) {
-                rule.request.uri = this.server.replace(reTrailingSlash, '') + rule.request.uri;
+                rule.request.uri = this.baseUrl.replace(reTrailingSlash, '') + rule.request.uri;
             }
         }
         // otherwise, we are in the body, append
@@ -88,7 +81,7 @@ Parser.prototype._requestLine = function(rule, line) {
 Parser.prototype._responseLine = function(rule, line) {
     var headerMatch = reHeader.exec(line),
         patternMatch = rePattern.exec(line);
-    
+
     if (headerMatch) {
         // add the header to the request
         this._addHeader(rule.response, headerMatch, line);
@@ -98,7 +91,7 @@ Parser.prototype._responseLine = function(rule, line) {
     }
     else {
         var match = reStages.response.exec(line);
-    
+
         // if we are in the expect header, then initialise the status code
         if (match) {
             rule.response = {
@@ -106,7 +99,7 @@ Parser.prototype._responseLine = function(rule, line) {
                 body: '',
                 headers: []
             };
-        
+
             // add the code regex
             rule.response.codeRegex = this._createStatusCodeRegex(rule.response.code);
             debug('found EXPECT line, looking for status code: ' + rule.response.code, rule.response.codeRegex);
@@ -127,16 +120,17 @@ Parser.prototype.addRule = function(rule) {
         catch (e) {
         }
     });
-    
+
     // emit the rule
     this.emit('rule', rule);
 };
 
-Parser.prototype.parse = function(text) {
-    var parser = this,
-        rule = new Rule(),
-        currentStage;
-    
+Parser.prototype.parse = function(text, callback) {
+    var parser = this
+      , rules = []
+      , rule = new Rule()
+      , currentStage;
+
     // split the text on the linebreak character
     (text || '').split(/\n/).forEach(function(line) {
         // iterate through the stages and check for matches
@@ -146,31 +140,31 @@ Parser.prototype.parse = function(text) {
                 currentStage = stage;
             }
         });
-        
+
         // if we are not in the expect stage, and we have a current rule with an expect
         // condition, then reset the rule (we have a new one);
         if (currentStage !== 'response' && currentStage !== 'responseHeader' && rule && rule.response) {
             // if we have an existing rule, then emit it
             if (rule) {
-                parser.addRule(rule);
+                rules.push(rule);
             }
-            
+
             rule = new Rule();
         }
-        
+
         if (currentStage) {
             parser['_' + currentStage + 'Line'].call(parser, rule, line);
         }
     });
-    
+
     // if we have a rule with a valid expect condition, then emit the rule
     if (rule && rule.response) {
-        this.addRule(rule);
+      rules.push(rule);
     }
     
-    // emit the end event
-    this.emit('end');
+    return rules;
 };
 
-module.exports = Parser;
-
+module.exports = function(data, opts) {
+  return new Parser(opts).parse(data);
+};

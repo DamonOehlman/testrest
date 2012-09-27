@@ -1,0 +1,6 @@
+# fails correctly when json mismatches occur
+GET /json-test
+EXPECT 2xx
+{
+    "first": "Fred"
+}

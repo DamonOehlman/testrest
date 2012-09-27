@@ -1,0 +1,36 @@
+- it: returns Hi for /
+  get: /
+  expect:
+    status: 2xx
+    body: Hi
+
+- it: returns a 404 for /does-not-exist
+  get: /does-not-exist
+  expect: 404
+  
+- it: returns valid JSON for /json-test
+  get: /json-test
+  expect:
+    status: 2xx
+    body:
+      first: Roger
+      last: Rabbit
+
+- it: partial JSON tests are ok too
+  get: /json-test
+  expect:
+    status: 2xx
+    body:
+      first: Roger
+
+- it: expects the contents of empty to be an empty array
+  get: /empty
+  expect:
+    status: 2xx
+    body-matches: []
+    
+- it: expects that we can compare contents against a file
+  get: /test.txt
+  expect:
+    status: 2xx
+    body: data/text.txt
