@@ -13,7 +13,7 @@ module.exports = function(tests, opts) {
     
     // iterate through the rules and create the tests
     tests.forEach(function(test) {
-      it(test.description, test.request.bind(test));
+      it(test.description, require('../lib/checker').bind(null, test));
     });
   };
 };

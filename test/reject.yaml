@@ -1,4 +1,11 @@
 - it: should reject the contents of an empty array
   get: /empty-fail
-  reject: 
-    body-match: "[]"
+  expect:
+    body-matches:
+      - "[]"
+
+- it: should reject incorrect results from the server
+  get: /json-test
+  reject:
+    body:
+      first: Fred

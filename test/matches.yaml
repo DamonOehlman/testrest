@@ -1,0 +1,9 @@
+- it: should be able to check for a single match condition
+  get: /array-of-numbers
+  expect:
+    body:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5

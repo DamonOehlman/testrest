@@ -23,7 +23,8 @@
   "devDependencies": {
     "cookies": "0.3.x",
     "mocha": "1.4.x",
-    "tako": "git://github.com/DamonOehlman/tako.git"
+    "tako": "git://github.com/DamonOehlman/tako.git",
+    "testrest": "git://github.com/DamonOehlman/testrest.git"
   },
   "repository": {
     "type": "git",

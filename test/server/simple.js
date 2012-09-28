@@ -12,10 +12,6 @@ app.route('/json-test').json({
 
 app.route('/empty').json([]);
 
-app.route('/empty-fail').json({
-  error: 'failed'
-});
-
 app.route('/test.txt')
 .text(function (req, res) {
   fs.readFile(path.resolve(__dirname, '..', 'data', 'test.txt'), 'utf8', function(err, data) {
