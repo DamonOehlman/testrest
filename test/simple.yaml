@@ -33,4 +33,4 @@
   get: /test.txt
   expect:
     status: 2xx
-    body: data/text.txt
+    body: data/test.txt

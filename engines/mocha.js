@@ -1,9 +1,15 @@
-var request = require('request');
+var async = require('async')
+  , request = require('request');
 
 module.exports = function(tests, opts) {
   return function() {
-    opts.before.forEach(before);
-    opts.after.forEach(after);
+    before(function(done) {
+      async.series(opts.before, done);
+    });
+    
+    after(function(done) {
+      async.series(opts.after, done);
+    });
     
     // iterate through the rules and create the tests
     tests.forEach(function(test) {

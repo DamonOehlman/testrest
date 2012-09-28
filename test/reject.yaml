@@ -1,0 +1,4 @@
+- it: should reject the contents of an empty array
+  get: /empty-fail
+  reject: 
+    body-match: "[]"
