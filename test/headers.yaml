@@ -1,0 +1,21 @@
+- it: should be able to send headers to a server
+  get: /echo-headers
+  
+  headers:
+    foo: bar
+    
+  expect:
+    status: 200
+    body:
+      foo: bar
+
+- it: should be able to send cookies to a server
+  get: /echo-cookies
+  
+  cookies:
+    foo: bar
+    
+  expect:
+    status: 200
+    body:
+      foo: bar
