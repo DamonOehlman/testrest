@@ -180,7 +180,6 @@ var testrest = module.exports = function(definitionFile, opts) {
   }
   
   // load the control file content
-  console.log(definitionFile);
   content = fs.readFileSync(definitionFile, 'utf8');
   
   // initialise the opts
