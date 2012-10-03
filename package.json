@@ -15,6 +15,7 @@
   "dependencies": {
     "async": "0.1.x",
     "debug": "*",
+    "formatter": "0.1.x",
     "js-yaml": "1.0.x",
     "matches": "0.3.x",
     "request": "2.11.x",
