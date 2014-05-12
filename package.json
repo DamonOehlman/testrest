@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "cookies": "~0.4",
-    "mocha": "^1",
-    "tako": "~0.3"
+    "firetruck": "~0.2",
+    "mocha": "^1"
   },
   "repository": {
     "type": "git",
