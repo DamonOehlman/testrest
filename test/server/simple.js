@@ -1,31 +1,31 @@
-var tako = require('tako'),
-    fs = require('fs'),
-    path = require('path'),
-    app = tako();
+var fs = require('fs');
+var path = require('path');
+var server = require('http').createServer();
+var app = require('firetruck')(server);
 
-app.route('/').text('Hi');
+app('/').text('Hi');
 
-app.route('/json-test').json({
+app('/json-test').json({
   first: 'Roger',
   last: 'Rabbit'
 });
 
-app.route('/empty').json([]);
+app('/empty').json([]);
 
-app.route('/test.txt')
-.text(function (req, res) {
-  fs.readFile(path.resolve(__dirname, '..', 'data', 'test.txt'), 'utf8', function(err, data) {
-      res.end(data);
+app('/test.txt')
+  .text(function (req, res) {
+    fs.readFile(path.resolve(__dirname, '..', 'data', 'test.txt'), 'utf8', function(err, data) {
+        res.end(data);
+    });
   });
-})
-.methods('GET');
+// .methods('GET');
 
-app.route('/test')
-.json(function(req, res) {
-  req.on('json', function(obj) {
-    res.end(obj);
+app('/test')
+  .json(function(req, res) {
+    req.on('json', function(obj) {
+      res.end(obj);
+    });
   });
-})
-.methods('PUT');
+  //   .methods('PUT');
 
-module.exports = app.httpServer;
+module.exports = app.server;
