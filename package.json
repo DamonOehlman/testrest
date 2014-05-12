@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "cookies": "~0.4",
-    "firetruck": "~0.2",
+    "firetruck": "~0.3",
     "mocha": "^1"
   },
   "repository": {
