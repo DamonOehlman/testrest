@@ -4,7 +4,18 @@ testREST is a testing helper that is designed to make the process of testing
 your REST application easier to write and easier to read. A simple
 [YAML](http://www.yaml.org/) definition file format is used to describe tests.
 
-For example:
+
+[![NPM](https://nodei.co/npm/testrest.png)](https://nodei.co/npm/testrest/)
+
+[![Build Status](https://img.shields.io/travis/DamonOehlman/testrest.svg?branch=master)](https://travis-ci.org/DamonOehlman/testrest)
+
+[![browser support](https://ci.testling.com/DamonOehlman/testrest.png)](https://ci.testling.com/DamonOehlman/testrest)
+
+
+## Example Usage
+
+First a `.yaml` file is defined for the test that you want to run. Displayed
+below is an example from the testrest tests:
 
 ```yaml
 - it: should be able to send headers to a server

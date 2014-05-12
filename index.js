@@ -21,7 +21,10 @@ var defaultOpts = {
   your REST application easier to write and easier to read. A simple
   [YAML](http://www.yaml.org/) definition file format is used to describe tests.
 
-  For example:
+  ## Example Usage
+
+  First a `.yaml` file is defined for the test that you want to run. Displayed
+  below is an example from the testrest tests:
 
   <<< test/headers.yaml
 
