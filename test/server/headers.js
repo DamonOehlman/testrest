@@ -1,18 +1,13 @@
-var tako = require('tako')
-  , fs = require('fs')
-  , path = require('path')
-  , _ = require('underscore')
-  , Cookies = require('cookies')
-  , app = tako();
+var server = module.exports = require('http').createServer();
+var app = require('firetruck')(server);
+var Cookies = require('cookies');
 
-app.route('/echo-headers').json(function(req, res) {
+app('/echo-headers').json(function(req, res) {
   res.end(JSON.stringify(req.headers));
 });
 
-app.route('/echo-cookies').json(function(req, res) {
+app('/echo-cookies').json(function(req, res) {
   var cookies = new Cookies(req, res);
-  
+
   res.end(JSON.stringify({ foo: cookies.get('foo') }));
 });
-
-module.exports = app.httpServer;

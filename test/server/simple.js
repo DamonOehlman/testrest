@@ -1,6 +1,6 @@
 var fs = require('fs');
 var path = require('path');
-var server = require('http').createServer();
+var server = module.exports = require('http').createServer();
 var app = require('firetruck')(server);
 
 app('/').text('Hi');
@@ -27,5 +27,3 @@ app('/test')
     });
   });
   //   .methods('PUT');
-
-module.exports = app.server;

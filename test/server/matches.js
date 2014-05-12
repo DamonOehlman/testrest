@@ -1,8 +1,4 @@
-var tako = require('tako'),
-    fs = require('fs'),
-    path = require('path'),
-    app = tako();
+var server = module.exports = require('http').createServer();
+var app = require('firetruck')(server);
 
-app.route('/array-of-numbers').json([1, 2, 3, 4, 5]).methods('GET');
-
-module.exports = app.httpServer;
+app('/array-of-numbers').json([1, 2, 3, 4, 5]);
