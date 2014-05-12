@@ -1,17 +1,14 @@
 {
   "name": "testrest",
   "description": "REST API Testing Helpers (designed for use with Mocha)",
-  "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-  "tags": [
+  "author": "Damon Oehlman <damon.oehlman@gmail.com>",
+  "keywords": [
     "rest",
     "test",
     "testing",
     "mocha"
   ],
   "version": "0.5.0",
-  "engines": {
-    "node": ">= 0.6.x < 0.9.0"
-  },
   "dependencies": {
     "async": "0.1.x",
     "debug": "*",
@@ -24,8 +21,7 @@
   "devDependencies": {
     "cookies": "0.3.x",
     "mocha": "1.4.x",
-    "tako": "git://github.com/DamonOehlman/tako.git",
-    "testrest": "git://github.com/DamonOehlman/testrest.git"
+    "tako": "git://github.com/DamonOehlman/tako.git"
   },
   "repository": {
     "type": "git",
@@ -35,8 +31,6 @@
     "url": "http://github.com/DamonOehlman/testrest/issues"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec"
-  },
-  "contributors": [],
-  "optionalDependencies": {}
+    "test": "mocha --reporter spec"
+  }
 }
