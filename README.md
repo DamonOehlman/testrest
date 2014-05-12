@@ -9,9 +9,6 @@ your REST application easier to write and easier to read. A simple
 
 [![Build Status](https://img.shields.io/travis/DamonOehlman/testrest.svg?branch=master)](https://travis-ci.org/DamonOehlman/testrest)
 
-[![browser support](https://ci.testling.com/DamonOehlman/testrest.png)](https://ci.testling.com/DamonOehlman/testrest)
-
-
 ## Example Usage
 
 First a `.yaml` file is defined for the test that you want to run. Displayed
