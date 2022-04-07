@@ -10,7 +10,7 @@
   ],
   "version": "0.6.0",
   "dependencies": {
-    "async": "~0.8",
+    "async": "~3.2.2",
     "debug": "*",
     "formatter": "~0.4",
     "js-yaml": "^3",
