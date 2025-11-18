@@ -13,7 +13,7 @@
     "async": "~0.8",
     "debug": "*",
     "formatter": "~0.4",
-    "js-yaml": "^3",
+    "js-yaml": "^4.1.1",
     "matches": "~0.5",
     "request": "^2",
     "underscore": "^1"
